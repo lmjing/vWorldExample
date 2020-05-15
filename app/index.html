@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <!-- VWORLD -->
+  <script type="text/javascript" src="http://map.vworld.kr/js/vworldMapInit.js.do?version=2.0&apiKey=38BBFD28-BE85-3C8A-944A-51A428E44141&domain=http://localhost:8000"></script>
+</head>
+<body>
+<div id="vmap" style="width:100%;height:350px;left:0px;top:0px"></div>
+<select id="setMode" onchange="mapController.setMode(this.value)">
+  <option value="2d-map">2d-map</option>
+  <option value="3d-map">3d-map</option>
+</select>
+<script type="text/javascript">
+  vw.MapControllerOption = {
+    container : "vmap",
+    mapMode : "2d-map",
+    basemapType : vw.ol3.BasemapType.GRAPHIC,
+    controlDensity : vw.ol3.DensityType.EMPTY,
+    interactionDensity : vw.ol3.DensityType.BASIC,
+    controlsAutoArrange : true,
+    homePosition : vw.ol3.CameraPosition,
+    initPosition : vw.ol3.CameraPosition,
+  };
+
+  let mapController = new vw.MapController(vw.MapControllerOption);
+
+  let zoom = new vm.zoom
+
+</script>
+</body>
+</html>
