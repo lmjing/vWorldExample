@@ -22,22 +22,11 @@
   <option value="2d-map">2d-map</option>
   <option value="3d-map">3d-map</option>
 </select>
-<script type="text/javascript">
-  vw.MapControllerOption = {
-    container : "vmap",
-    mapMode : "2d-map",
-    basemapType : vw.ol3.BasemapType.GRAPHIC,
-    controlDensity : vw.ol3.DensityType.EMPTY,
-    interactionDensity : vw.ol3.DensityType.BASIC,
-    controlsAutoArrange : true,
-    homePosition : vw.ol3.CameraPosition,
-    initPosition : vw.ol3.CameraPosition,
-  };
-
-  let mapController = new vw.MapController(vw.MapControllerOption);
-
-  let zoom = new vm.zoom
-
-</script>
+<span>
+  <input type="text" name="zoomLevel" value="16" id="zoomLevel">
+  <button type="submit" name="zoom" onclick="setZoom()">Zoom</button>
+  <button type="submit" name="zoom" onclick="moveToYeouido()">여의도</button>
+</span>
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>

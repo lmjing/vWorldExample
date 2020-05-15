@@ -1,5 +1,5 @@
 {
-  "strict": "global",
+  "strict": true,
   "globals": {
     // AngularJS
     "angular": false,
@@ -20,5 +20,7 @@
     "browser": false,
     "element": false,
     "by": false
-  }
+
+  },
+  "esversion": 6
 }
