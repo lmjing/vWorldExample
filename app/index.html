@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,21 +9,26 @@
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
-  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <!-- VWORLD -->
-  <script type="text/javascript" src="http://map.vworld.kr/js/vworldMapInit.js.do?version=2.0&apiKey=38BBFD28-BE85-3C8A-944A-51A428E44141&domain=http://localhost:8000"></script>
-</head>
-<body>
-<div id="vmap" style="width:100%;height:500px;left:0px;top:0px"></div>
-<select id="setMode" onchange="mapController.setMode(this.value)">
-  <option value="2d-map">2d-map</option>
-  <option value="3d-map">3d-map</option>
-</select>
-<span>
+ </head>
+<body ng-app="myApp">
+<div ng-controller="MapController">
+  <div id="vmap" style="width:100%;height:500px;left:0px;top:0px"></div>
+  <select id="setMode" onchange="mapController.setMode(this.value)">
+    <option value="2d-map">2d-map</option>
+    <option value="3d-map">3d-map</option>
+  </select>
+  <span>
   <input type="text" name="zoomLevel" value="16" id="zoomLevel">
-  <button type="submit" name="zoom" onclick="setZoom()">Zoom</button>
-  <button type="submit" name="zoom" onclick="moveToYeouido()">여의도</button>
+  <button type="submit" name="zoom" ng-click="setZoom()">Zoom</button>
+  <button type="submit" name="move" ng-click="moveToYeouido()">여의도</button>
+  <button type="submit" name="search" ng-click="getAddressKT()">127.0271674,37.4713571</button>
 </span>
-<script type="text/javascript" src="index.js"></script>
+</div>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="app.js"></script>
+<!-- VWORLD -->
+<script type="text/javascript" src="http://map.vworld.kr/js/vworldMapInit.js.do?version=2.0&apiKey=38BBFD28-BE85-3C8A-944A-51A428E44141&domain=http://localhost:8000"></script>
+<script src="index.js"></script>
 </body>
 </html>
