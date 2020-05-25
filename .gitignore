@@ -1,45 +1,6 @@
-logs/*
-!.gitkeep
-node_modules/
-app/lib/
-tmp
-.DS_Store
-.idea
 
-
-# Created by https://www.gitignore.io/api/git,node,angular,webstorm
-# Edit at https://www.gitignore.io/?templates=git,node,angular,webstorm
-
-### Angular ###
-## Angular ##
-# compiled output
-dist/
-tmp/
-app/**/*.js
-app/**/*.js.map
-
-# dependencies
-node_modules/
-bower_components/
-
-# IDEs and editors
-.idea/
-
-# misc
-.sass-cache/
-connect.lock/
-coverage/
-libpeerconnection.log/
-npm-debug.log
-testem.log
-typings/
-
-# e2e
-e2e/*.js
-e2e/*.map
-
-#System Files
-.DS_Store/
+# Created by https://www.gitignore.io/api/git,node,webstorm
+# Edit at https://www.gitignore.io/?templates=git,node,webstorm
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -97,9 +58,11 @@ bower_components
 build/Release
 
 # Dependency directories
+node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
+typings/
 
 # TypeScript cache
 *.tsbuildinfo
@@ -133,6 +96,7 @@ jspm_packages/
 .nuxt
 
 # rollup.js default build output
+dist/
 
 # Uncomment the public line if your project uses Gatsby
 # https://nextjs.org/blog/next-9-1#public-directory-support
@@ -156,6 +120,7 @@ jspm_packages/
 .dynamodb/
 
 # Temporary folders
+tmp/
 temp/
 
 ### WebStorm ###
@@ -246,4 +211,4 @@ fabric.properties
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator/
 
-# End of https://www.gitignore.io/api/git,node,angular,webstorm
+# End of https://www.gitignore.io/api/git,node,webstorm

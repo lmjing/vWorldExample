@@ -13,9 +13,9 @@
 <body ng-app="myApp">
 <div ng-controller="MapController">
   <div id="vmap" style="width:100%;height:500px;left:0px;top:0px"></div>
-  <select id="setMode" onchange="mapController.setMode(this.value)">
+  <select id="setMode" ng-model="mode" ng-change="setMode(this.value)">
     <option value="2d-map">2d-map</option>
-    <option value="3d-map">3d-map</option>
+    <option value="background-map">배경지도</option>
   </select>
   <span>
   <input type="text" name="zoomLevel" value="16" id="zoomLevel">
