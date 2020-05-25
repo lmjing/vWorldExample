@@ -4,7 +4,7 @@ angular.module('myApp')
 function MapController($scope, $http) {
 
     let vmap;
-    $scope.mode = 'background-map';
+    $scope.mode = '2d-map';
 
 // 지도 ZOOM 설정
     $scope.setZoom = () => {
