@@ -4,6 +4,7 @@ angular.module('myApp')
 function MapController($scope, $http) {
 
     let vmap;
+    let bmap;
     $scope.mode = '2d-map';
 
 // 지도 ZOOM 설정
@@ -127,30 +128,42 @@ function MapController($scope, $http) {
                 , homePosition: vw.ol3.CameraPosition
                 , initPosition: vw.ol3.CameraPosition
             };
-            vmap = undefined;
             vmap = new vw.ol3.Map("vmap", vw.ol3.MapOptions);
             makeZoomOption();
         } else if ($scope.mode === 'background-map') {
+            var mapBounds = new OpenLayers.Bounds(123 , 32, 134 , 43);
             // TODO 여기 실행 안됨
+            var osm = new OpenLayers.Layer.OSM();
             var options = {
                 controls: [],
                 projection: new OpenLayers.Projection("EPSG:900913"),
                 displayProjection: new OpenLayers.Projection("EPSG:4326"),
                 units: "m",
-                controls: [],
                 numZoomLevels:21,
                 maxResolution: 156543.0339,
                 maxExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34)
             };
-            vmap = undefined;
-            vmap = new OpenLayers.Map('vmap', options);
+            bmap = new OpenLayers.Map("bmap", options);
 
-            vHybrid = new vworld.Layers.Hybrid('VHYBRID');
-            if (vHybrid != null) {vmap.addLayer(vHybrid);}
+            vBase = new vworld.Layers.Base('VBASE');
+            if (vBase != null){bmap.addLayer(vBase);}
+            vHybrid = new vworld.Layers.Hybrid("VHYBRID");
+            if (vHybrid != null) {bmap.addLayer(vHybrid);}
+
+            bmap.addLayers([osm]);
+
+            bmap.zoomToExtent( mapBounds.transform(bmap.displayProjection, bmap.projection ) );
+            bmap.zoomTo(11);
+
+            bmap.addControl(new OpenLayers.Control.PanZoomBar());
+            //map.addControl(new OpenLayers.Control.MousePosition());
+            bmap.addControl(new OpenLayers.Control.Navigation());
+            //map.addControl(new OpenLayers.Control.MouseDefaults()); //2.12 No Support
+            bmap.addControl(new OpenLayers.Control.Attribution({separator:" "}));
         }
     };
 
     // avoid pink tiles
     OpenLayers.IMAGE_RELOAD_ATTEMPTS = 3;
-    OpenLayers.Util.onImageLoadErrorColor = "transparent";
+    OpenLayers.Util.onImageLoadErrorColor = "red";
 }
